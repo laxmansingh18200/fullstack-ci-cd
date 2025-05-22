@@ -1,0 +1,19 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy-to-wsl:
+    runs-on: [self-hosted, Linux]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to local VM
+        run: |
+          cd /mnt/c/Users/hp/Desktop/fullstack-ci-cd
+          git pull
+          docker-compose down
+          docker-compose up -d --build
