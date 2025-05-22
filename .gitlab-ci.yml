@@ -6,7 +6,7 @@ deploy-to-wsl:
   script:
     - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
-    - ssh -o StrictHostKeyChecking=no lahirwar@127.0.1.1 "cd /mnt/c/Users/hp/Desktop/fullstack-ci-cd && git pull && docker-compose down && docker-compose up -d --build"
+    - ssh -o StrictHostKeyChecking=no lahirwar@172.24.231.107 "cd /mnt/c/Users/hp/Desktop/fullstack-ci-cd && git pull && docker-compose down && docker-compose up -d --build"
   only:
     - main
   tags:
